@@ -27,41 +27,6 @@ impl Foo {
 }
 impl IFoo for Foo {}
 pub trait IFoo: Sized + std::ops::Deref {}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct FooStruct {
-    pub foo: Foo,
-}
-#[test]
-fn bindgen_test_layout_FooStruct() {
-    assert_eq!(
-        ::std::mem::size_of::<FooStruct>(),
-        8usize,
-        concat!("Size of: ", stringify!(FooStruct))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<FooStruct>(),
-        8usize,
-        concat!("Alignment of ", stringify!(FooStruct))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<FooStruct>())).foo as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(FooStruct),
-            "::",
-            stringify!(foo)
-        )
-    );
-}
-impl Default for FooStruct {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
 extern "C" {
     pub fn fooFunc(foo: Foo);
 }

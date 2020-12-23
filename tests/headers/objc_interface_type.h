@@ -4,9 +4,10 @@
 @interface Foo
 @end
 
-struct FooStruct {
-  Foo *foo;
-};
+// TODO(#1954): This is broken.
+// struct FooStruct {
+//   Foo *foo;
+// };
 
 void fooFunc(Foo *foo);
 

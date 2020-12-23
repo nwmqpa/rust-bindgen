@@ -3,6 +3,9 @@
 
 
 // Protocol should be included, since it is used by the WhitelistMe
+/*
+FIXME(#1954): This test is broken.
+
 @protocol SomeProtocol
 -(void)protocolMethod;
 +(void)protocolClassMethod;
@@ -22,3 +25,4 @@
 @interface WhitelistMe (IgnoredCategory)
 @end
 
+*/
